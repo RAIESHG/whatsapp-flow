@@ -1,0 +1,32 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "7e51e550f39180d5e84d405d3b2c172d"
+name = "whatsapp-flow"
+handle = "whatsapp-flow"
+application_url = "https://sega-camel-xi-gods.trycloudflare.com"
+embedded = true
+
+[build]
+include_config_on_deploy = true
+automatically_update_urls_on_dev = true
+
+[webhooks]
+api_version = "2025-07"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks/app/uninstalled"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/scopes_update" ]
+  uri = "/webhooks/app/scopes_update"
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products"
+
+[auth]
+redirect_urls = ["https://sega-camel-xi-gods.trycloudflare.com/auth/callback", "https://sega-camel-xi-gods.trycloudflare.com/auth/shopify/callback", "https://sega-camel-xi-gods.trycloudflare.com/api/auth/callback"]
+
+[pos]
+embedded = false
